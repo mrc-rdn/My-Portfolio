@@ -30,9 +30,9 @@ export default function Home() {
     };
 
     return (
-        <div className='flex flex-col items-center w-full pt-30 overflow-scroll'>
+        <div className='flex flex-col items-center w-full h-screen pt-30 overflow-y-scroll'>
             <div className='px-10 w-11/12 lg:w-200 flex flex-col lg:flex-row items-center'>
-                <img src="/images/Mrc.png" alt="" className='sm:h-70 sm:w-70 ' />
+                <img src="/images/Mrc.png" alt="" className='sm:h-70 sm:w-70 w-70 ' />
                 <div className='text-gray-400 w-full mt-10 lg:mt-0'>
                     <h1 className='text-gray-100 font-bitcount text-3xl px-10'>John Marco Ardina</h1>
                     <p className=" font-display font-saira text-lg  text-[15px] px-10 py-3">
