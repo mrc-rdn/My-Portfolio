@@ -34,16 +34,16 @@ export default function Home() {
             <div className='px-10 w-11/12 lg:w-200 flex flex-col lg:flex-row items-center'>
                 <img src="/images/Mrc.png" alt="" className='sm:h-70 sm:w-70 w-70 ' />
                 <div className='text-gray-400 w-full mt-10 lg:mt-0'>
-                    <h1 className='text-gray-100 font-bitcount text-3xl px-10'>John Marco Ardina</h1>
-                    <p className=" font-display font-saira text-lg  text-[15px] px-10 py-3">
+                    <h1 className='text-gray-100 font-bitcount text-3xl sm:px-10'>John Marco Ardina</h1>
+                    <p className=" font-display font-saira text-lg  text-[15px] sm:px-10 py-3">
                         I am a Full Stack Developer dedicated to helping teams build reliable and
                         effective solutions with passion and excellence.
                     </p>
-                    <p className="font-display font-saira text-lg  text-[15px] px-10 py-3">
+                    <p className="font-display font-saira text-lg  text-[15px] sm:px-10 py-3">
                         Transforming creative ideas, code, and concepts into engaging digital experiences
                         that inspire, solve problems, and create lasting impact.
                     </p>
-                    <div className="px-10 py-3 w-full flex justify-between">
+                    <div className="sm:px-10 py-3 w-full flex justify-between">
                         {
                             socialAccount.map((items) => {
                                 return (
