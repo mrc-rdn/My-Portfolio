@@ -1,7 +1,7 @@
 import React from 'react'
 import {Routes, Route} from 'react-router-dom'
-import PublicLayout from '../layouts/publiclayout/PublicLayout'
-import Home from '../features/Home/Home'
+import PublicLayout from '../layouts/publiclayout/PublicLayout.tsx'
+import Home from '../features/Home/Home.tsx'
 
 export default function AppRoutes() {
   return (
