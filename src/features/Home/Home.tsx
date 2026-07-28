@@ -1,11 +1,11 @@
 import { GitHubCalendar } from "react-github-calendar";
 
 export default function Home() {
-    const dots = Array.from({ length: 365 });
+    // const dots :string[] = [{''}]
   return (
     <div className='flex flex-col items-center w-full pt-30 '>
-        <div className='w-6/12 flex'>
-            <img src="/images/Mrc.png" alt="" className='w-70' />
+        <div className='px-10 w-200 flex'>
+            <img src="/images/Mrc.png" alt="" className='h-70 ' />
             <div className='text-gray-400'>
                 <h1 className='text-gray-100 font-bitcount text-3xl px-10'>John Marco Ardina</h1>
                 <p className=" font-display font-saira text-lg  text-[15px] px-10 py-3">
