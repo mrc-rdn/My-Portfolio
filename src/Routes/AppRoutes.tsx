@@ -1,12 +1,13 @@
 import React from 'react'
 import {Routes, Route} from 'react-router-dom'
 import PublicLayout from '../layouts/publiclayout/PublicLayout'
+import Home from '../features/Home/Home'
 
 export default function AppRoutes() {
   return (
     <Routes>
-        <Route path='/' element={<PublicLayout />} >
-
+        <Route element={<PublicLayout />} >
+            <Route path='/' element={<Home />} />
         </Route>
     </Routes>
   )

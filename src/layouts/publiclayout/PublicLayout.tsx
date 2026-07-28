@@ -1,26 +1,38 @@
 import React from 'react'
-import { ChevronRight } from 'lucide-react';
-import { ChevronLeft } from 'lucide-react';
-import { Slash } from 'lucide-react';
+import { Outlet } from 'react-router-dom'
+
 export default function PublicLayout() {
-    const nav :string [] = ['Project', 'Experience', 'Certifications', 'About']
+    const nav :string [] = ['Project', 'Experience', 'Stack', 'Certifications', 'About']
 
   return (
-    <div className='h-screen w-50 bg-neutral-900 p-5'>
-        <div className='w-full flex items-center'>
-            <h1 className='text-white flex text-xl items-center'><ChevronLeft />/<ChevronRight /></h1>
-            <h2 className='text-white text-xl font-mono'>Mrc</h2>
-        </div>
-       
-      <div>
-        {
-            nav.map((items, index)=>{
-                return(
-                    <span className='flex text-white'>{items}</span>
-                )
-            })
-        }
+      <div className='flex'>
+          <div className='h-screen w-50 bg-neutral-800  border-r border-gray-500'>
+              <div className='h-15 flex items-center border-b border-gray-500 py-3 px-5'>
+                  
+                  <h2 className='text-white text-2xl font-bitcount '> Mrc</h2>
+              </div>
+
+              <div className='px-8 py-5  mb-auto '>
+                  {
+                      nav.map((items, index) => {
+                          return (
+                              <span className=' font-saira flex text-gray-400 my-5 text-[15px]
+                                      transition duration-300 hover:text-white'>
+                                  {items}
+                              </span>
+                          )
+                      })
+                  }
+              </div>
+              <div className='h-15 flex items-center  border-t border-gray-500 py-3 px-5 self-end'>
+
+              </div>
+
+          </div>
+        <main className='bg-neutral-800 h-screen w-full'>
+            <Outlet />
+        </main>
       </div>
-    </div>
+    
   )
 }
