@@ -1,4 +1,4 @@
-import React from 'react'
+
 import { Outlet } from 'react-router-dom'
 
 export default function PublicLayout() {
@@ -16,7 +16,7 @@ export default function PublicLayout() {
                   {
                       nav.map((items, index) => {
                           return (
-                              <span className=' font-saira flex text-gray-400 my-5 text-[15px]
+                              <span key={index} className=' font-saira flex text-gray-400 my-5 text-[15px]
                                       transition duration-300 hover:text-white'>
                                   {items}
                               </span>
