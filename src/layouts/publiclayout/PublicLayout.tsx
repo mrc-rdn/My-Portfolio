@@ -9,7 +9,7 @@ export default function PublicLayout() {
           <div className='h-screen w-50 bg-neutral-800  border-r border-gray-500'>
               <div className='h-15 flex items-center border-b border-gray-500 py-3 px-5'>
                   
-                  <h2 className='text-white text-2xl font-bitcount '> Mrc</h2>
+                  <h2 className='text-white text-2xl font-bitcount '> {'</>Mrc'}</h2>
               </div>
 
               <div className='px-8 py-5  mb-auto '>
