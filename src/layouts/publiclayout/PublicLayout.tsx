@@ -29,7 +29,7 @@ export default function PublicLayout() {
                       })
                   }
               </div>
-              <div className='h-15 flex items-center  border-t border-gray-500 py-3 px-5 self-end'>
+              <div className='h-15 flex items-center  border-t border-gray-500 py-3 px-5 '>
 
               </div>
 
