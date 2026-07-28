@@ -2,6 +2,7 @@
 import { Outlet } from 'react-router-dom'
 import { useState } from "react";
 
+
 export default function PublicLayout() {
     const nav :string [] = ['Project', 'Experience', 'Stack', 'Certifications', 'About']
     const [isOpen, setIsOpen] = useState<boolean>(false);
@@ -33,6 +34,8 @@ export default function PublicLayout() {
               </div>
 
           </div>
+
+          
           <div className={isOpen?('h-screen w-full bg-neutral-800  border-r border-gray-500  fixed lg:hidden'): ('h-screen w-full bg-neutral-800  border-r border-gray-500  fixed hidden')}>
               <div className='h-15 flex items-center border-b border-gray-500 py-3 px-10'>
 
@@ -41,7 +44,7 @@ export default function PublicLayout() {
                   className="lg:hidden text-white text-2xl font-bitcount ml-auto"
                   onClick={() => setIsOpen(!isOpen)}
               >
-                  ☰
+                  ⨉
               </button>
               </div>
 
@@ -63,13 +66,13 @@ export default function PublicLayout() {
 
           </div>
 
-          <div className='h-15 w-full bg-neutral-800  border-b border-gray-500 px-10 flex justify-center lg:hidden'>
-              <div className='h-15 flex items-center border-b border-gray-500 py-3 px-5'>
+          <div className='h-15 w-full bg-neutral-800  border-b border-gray-500 px-10 flex justify-between items-center lg:hidden'>
+              
 
-                  <h2 className='text-white text-2xl font-bitcount '> {'</>Mrc'}</h2>
-              </div>
+              <h2 className='text-white text-2xl font-bitcount '> {'</>Mrc'}</h2>
+              
               <button
-                  className="lg:hidden text-white text-2xl font-bitcount ml-auto"
+                  className="lg:hidden text-white text-2xl font-bitcount "
                   onClick={() => setIsOpen(!isOpen)}
               >
                   ☰
