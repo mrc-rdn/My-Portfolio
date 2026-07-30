@@ -101,7 +101,7 @@ export default function Home() {
                 {
                     projectHightlightData.map((items, index) => {
                         return (
-                            <div className="h-30  border-b border-gray-600/70 py-5">
+                            <div className="h-auto  border-b border-gray-600/70 py-5">
                                 <div className="w-full flex justify-between">
                                     <h1 className="font-saira font-bold text-lg text-gray-100">{items.title}</h1>
                                     <p className="font-saira text-sm text-gray-400">{items.year}</p>
