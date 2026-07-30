@@ -4,7 +4,7 @@ import { useState } from "react";
 
 
 export default function PublicLayout() {
-    const nav :string [] = ['Project', 'Experience', 'Stack', 'Certifications', 'About']
+    const nav :string [] = ['Project', 'Experience', 'Stack', 'Certifications', 'About', 'Games']
     const [isOpen, setIsOpen] = useState<boolean>(false);
 
   return (
@@ -12,12 +12,10 @@ export default function PublicLayout() {
 
 
           <div className='h-screen w-50 bg-neutral-800  border-r border-gray-500 hidden lg:flex flex-col'>
-              <div className='h-15 flex items-center border-b border-gray-500 py-3 px-5'>
-
-                  <h2 className='text-white text-2xl font-bitcount '> {'</>Mrc'}</h2>
-              </div>
+              
 
               <div className='px-8 py-5  mb-auto '>
+                 <h2 className='text-white text-2xl font-bitcount mb-7'> {'Mrco'}</h2>
                   {
                       nav.map((items, index) => {
                           return (
@@ -29,7 +27,7 @@ export default function PublicLayout() {
                       })
                   }
               </div>
-              <div className='h-15 flex items-center  border-t border-gray-500 py-3 px-5 '>
+              <div className='h-15 flex items-center border-t border-gray-500 py-3 px-5'>
 
               </div>
 
@@ -79,7 +77,7 @@ export default function PublicLayout() {
               </button>
 
           </div>
-          <main className='bg-neutral-800 h-screen w-full'>
+          <main className='bg-neutral-800 h-screen w-full overflow-y-scroll'>
               <Outlet />
           </main>
       </div>

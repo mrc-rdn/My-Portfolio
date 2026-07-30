@@ -1,15 +1,33 @@
 import { GitHubCalendar } from "react-github-calendar";
 import { useState } from "react";
+import ProjectPage from '../../components/project/ProjectPage.tsx'
+import type { ProjectHighlightData, socialaccount } from "../../components/types/project.ts";
+
 
 export default function Home() {
-    type socialaccount = {
-        id: number;
-        social: string;
-        link: string;
-    }
+
+    
+
     const socialAccount: socialaccount[] = [{ id: 1, social: 'github ↗', link: 'https://github.com/mrc-rdn' },
     { id: 2, social: 'linkedin ↗', link: 'https://www.linkedin.com/in/john-marco-ardina-71b166371/' },
     { id: 3, social: 'instagram ↗', link: 'https://www.instagram.com/mrc_rdna/' }]
+
+    const projectHightlightData: ProjectHighlightData[] = [
+        { title: 'E-Kabuhayan', year: 2025, description: 'web-based application designed to help students, teachers, and administrators manage courses, track progress, and access learning materials efficiently and securely.' },
+        { title: 'Nex-TOS', year: 2026, description: 'web-based business operations and service management platform that streamlines equipment management, technician workflows, client services, inventory, billing, and field operations.' },
+        { title: 'Devotion Tracker', year: 2026, description: 'web-based application designed to help users build and maintain a consistent devotional routine. It allows users to record their daily devotions, track their spiritual progress.' }
+    ]
+
+    const stack: string[] = [
+        "TypeScript",
+        "React",
+        "Next.js",
+        "Node.js",
+        "PostgreSQL",
+        "Supabase",
+        "AWS",
+        
+    ];
 
     const [isOpen, setIsOpen] = useState<boolean>(false);
 
@@ -30,20 +48,21 @@ export default function Home() {
     };
 
     return (
-        <div className='flex flex-col items-center w-full h-screen pt-30 overflow-y-scroll'>
-            <div className='px-10 w-11/12 lg:w-200 flex flex-col lg:flex-row items-center'>
+        <div className=' w-full sm:w-auto md:w-185 h-screen flex flex-col items-center mx-auto px-10 '>
+            <div className=' flex flex-col sm:flex-row items-center sm:items-start pt-30 pb-15'>
+
                 <img src="/images/Mrc.png" alt="" className='sm:h-70 sm:w-70 w-70 ' />
-                <div className='text-gray-400 w-full mt-10 lg:mt-0'>
-                    <h1 className='text-gray-100 font-bitcount text-3xl sm:px-10'>John Marco Ardina</h1>
-                    <p className=" font-display font-saira text-lg  text-[15px] sm:px-10 py-3">
+                <div className='text-gray-400 w-full mt-10 sm:mt-0'>
+                    <h1 className='text-gray-100 font-bitcount sm:text-3xl text-2xl sm:ml-10'>John Marco Ardina</h1>
+                    <p className=" font-display font-saira text-lg  text-[15px] sm:ml-10 py-3">
                         I am a Full Stack Developer dedicated to helping teams build reliable and
                         effective solutions with passion and excellence.
                     </p>
-                    <p className="font-display font-saira text-lg  text-[15px] sm:px-10 py-3">
+                    <p className="font-display font-saira text-lg  text-[15px] sm:ml-10 py-3">
                         Transforming creative ideas, code, and concepts into engaging digital experiences
                         that inspire, solve problems, and create lasting impact.
                     </p>
-                    <div className="sm:px-10 py-3 w-full flex justify-between">
+                    <div className="sm:px-10 py-3 w-full flex  flex-wrap ">
                         {
                             socialAccount.map((items) => {
                                 return (
@@ -70,14 +89,87 @@ export default function Home() {
 
             </div>
 
+            <div className="flex w-full py-15 flex-col">
+                <div className="flex justify-between w-full items-center h-10 pb-10 border-b border-gray-600/70">
+                    <h1 className="font-bitcount text-xl text-gray-100">01 — Projects</h1>
+                    <button className="font-saira text-gray-100">ALL PROJECTS →</button>
+
+
+
+                </div>
+
+                {
+                    projectHightlightData.map((items, index) => {
+                        return (
+                            <div className="h-30  border-b border-gray-600/70 py-5">
+                                <div className="w-full flex justify-between">
+                                    <h1 className="font-saira font-bold text-lg text-gray-100">{items.title}</h1>
+                                    <p className="font-saira text-sm text-gray-400">{items.year}</p>
+                                </div>
+
+                                <p className="font-saira text-sm text-gray-400 pt-2">{items.description}</p>
+                            </div>
+                        )
+                    })
+                }
+
+
+
+            </div>
+
+            <div className="flex w-full py-15 flex-col">
+                <div className="flex justify-between w-full items-center h-10 pb-10 border-b border-gray-600/70">
+                    <h1 className="font-bitcount text-xl text-gray-100">02 — Experince</h1>
+                    <button className="font-saira text-gray-100">FULL HISTORY →</button>
+
+
+
+                </div>
+
+
+                <div className="  border-b border-gray-600/70 py-5">
+                    <div className="w-full flex justify-between">
+                        <p className="font-saira text- text-gray-400">2026</p>
+                        <h1 className="font-saira font-bold  text-gray-100 w-90">Software Development Intern</h1>
+                        <p className="font-saira text- text-gray-400">NexVision Inc.</p>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div className="flex w-full py-15 flex-col">
+                <div className="flex justify-between w-full items-center h-10 pb-10 border-b border-gray-600/70">
+                    <h1 className="font-bitcount text-xl text-gray-100">03 — Stack</h1>
+                    <button className="font-saira text-gray-100">VIEW ALL →</button>
+
+
+
+                </div>
+
+
+                <div className="  py-5 flex">
+                    {
+                        stack.map((items, index)=>{
+                            return(
+                                <p className="px-3 py-2 font-saira text-sm text-gray-400 border mr-2 rounded-lg 
+                                hover:text-gray-100 duratio-100 ease-in-out hover:animate-bounce">{items}</p>
+                            )
+                        })
+                    }
+
+                </div>
+
+            </div>
+
             <div className={isOpen ? ("w-full h-screen bg-white/50 absolute inset-0 flex items-center justify-center") : ('hidden')} >
-                <div className="w-100 h-55 rounded-xl bg-neutral-800 text-gray-200 p-7">
-                    <button className="text-[13px] absolute ml-85 top-68"
+                <div className="w-100 h-55 rounded-xl bg-neutral-800 text-gray-200 p-7 relative">
+                    <button className="text-[13px] absolute ml-85 top-4"
                         onClick={() => { setIsOpen(false) }}
                     >
                         ⨉
                     </button>
-                    
+
                     <p className="text-sm font-bitcount">Get in touch</p>
 
                     <p className="text-lg font-saira text-lg my-2">say hello</p>
