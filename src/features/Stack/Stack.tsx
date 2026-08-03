@@ -68,9 +68,9 @@ export default function Stack() {
         {/* Header */}
         <div className="flex justify-between w-full items-start pb-8 border-b border-neutral-800/80">
           <div className="flex flex-col gap-2">
-            <h1 className="font-saira text-4xl font-bold tracking-tight text-white lowercase">tech stack</h1>
+            <h1 className="font-bitcount text-4xl font-bold tracking-tight text-white">Tech stack</h1>
             <p className="text-gray-400 text-sm sm:text-base max-w-xl leading-relaxed mt-2">
-              The tools, frameworks, and platforms I reach for — across the front end, back end, infrastructure, and AI.
+              The Games, frameworks, and platforms I reach for — across the front end, back end, infrastructure, and AI.
             </p>
           </div>
           <Link to="/" className="text-gray-400 hover:text-white transition duration-300 text-xs sm:text-sm font-semibold tracking-wider whitespace-nowrap pt-3">

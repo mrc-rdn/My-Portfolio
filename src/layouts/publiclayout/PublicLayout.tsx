@@ -3,7 +3,7 @@ import { Outlet, NavLink, Link } from 'react-router-dom'
 import { useState } from "react";
 
 export default function PublicLayout() {
-    const nav: string[] = ['Project', 'Experience', 'Stack', 'Certifications', 'About', 'Games']
+    const nav: string[] = ['Project', 'Experience', 'Stack', 'Certifications', 'Games']
     const [isOpen, setIsOpen] = useState<boolean>(false);
 
     const getRoute = (item: string) => {
@@ -16,8 +16,7 @@ export default function PublicLayout() {
                 return '/stack';
             case 'certifications':
                 return '/certifications';
-            case 'about':
-                return '/';
+            
             case 'games':
                 return '/games';
             default:

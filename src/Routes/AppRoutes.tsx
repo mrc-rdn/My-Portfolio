@@ -7,6 +7,7 @@ import ProjectDetails from '../features/Projects/ProjectDetails.tsx'
 import Experience from '../features/Experience/Experience.tsx'
 import Stack from '../features/Stack/Stack.tsx'
 import Certifications from '../features/Certifications/Certifications.tsx'
+import Games from '../features/games/Games.tsx'
 
 export default function AppRoutes() {
   return (
@@ -18,7 +19,7 @@ export default function AppRoutes() {
             <Route path='/experience' element={<Experience />} />
             <Route path='/stack' element={<Stack />} />
             <Route path='/certifications' element={<Certifications />} />
-            <Route path='/games' element={<div className="p-10 text-white font-saira">Games section coming soon...</div>} />
+            <Route path='/games' element={<Games />} />
         </Route>
     </Routes>
   )

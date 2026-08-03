@@ -23,3 +23,10 @@ export interface socialaccount {
         social: string;
         link: string;
     }
+
+export interface GameData{
+  id: number;
+  title: string;
+  img: string;
+  link: string;
+}
