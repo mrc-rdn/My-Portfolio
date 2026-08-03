@@ -39,7 +39,7 @@ export default function Experience() {
       ],
       achievements: [
         'Delivered 5+ web platforms with clean client satisfaction rates, optimizing layout efficiency and speed.',
-        'Engineered custom portfolio layouts that successfully increased visitor acquisition rates by 40%.'
+
       ],
       technologies: ['HTML5', 'CSS3', 'JavaScript (ES6+)', 'React.js', 'Express.js', 'PostgreSQL', 'Git']
     }
@@ -65,7 +65,7 @@ export default function Experience() {
           {experiences.map((exp, index) => (
             <div key={index} className="relative group">
               {/* Timeline Bullet Node */}
-              <div className="absolute -left-[31px] sm:-left-[39px] top-1.5 w-4 h-4 rounded-full bg-neutral-900 border-2 border-white group-hover:bg-white transition duration-300 shadow-md shadow-white/10" />
+              <div className="absolute -left-[31px] sm:-left-[39px]  w-4 h-4 rounded-full bg-neutral-900 border-2 border-white group-hover:bg-white transition duration-300 shadow-md shadow-white/10" />
 
               {/* Title Header */}
               <div className="flex flex-col sm:flex-row sm:items-baseline justify-between gap-1 mb-4">
@@ -113,8 +113,8 @@ export default function Experience() {
                 <h3 className="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-2">Technologies Used</h3>
                 <div className="flex flex-wrap gap-1.5">
                   {exp.technologies.map((tech, idx) => (
-                    <span 
-                      key={idx} 
+                    <span
+                      key={idx}
                       className="px-2.5 py-0.5 bg-neutral-700/50 text-gray-300 border border-neutral-600/30 text-[11px] rounded transition duration-200 hover:border-white/50"
                     >
                       {tech}

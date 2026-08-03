@@ -159,7 +159,7 @@ export default function Certifications() {
                   rel="noopener noreferrer"
                   className="inline-block text-center w-full px-5 py-2.5 bg-white hover:bg-neutral-200 text-black rounded-xl transition duration-300 font-semibold text-sm cursor-pointer"
                 >
-                  Verify Certificate Credential ↗
+                  {"Verify Certificate Credential ↗\uFE0E"}
                 </a>
               )}
             </div>

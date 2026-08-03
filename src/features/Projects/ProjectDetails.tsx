@@ -180,7 +180,7 @@ export default function ProjectDetails() {
                 rel="noopener noreferrer"
                 className="w-full text-center px-4 py-2 bg-white hover:bg-neutral-200 text-black rounded-xl transition duration-300 font-semibold text-sm cursor-pointer"
               >
-                Live Demo ↗
+                {"Live Demo ↗\uFE0E"}
               </a>
             )}
             {project.github && (
@@ -190,7 +190,7 @@ export default function ProjectDetails() {
                 rel="noopener noreferrer"
                 className="w-full text-center px-4 py-2 bg-neutral-700 hover:bg-neutral-600 text-gray-200 border border-neutral-600/60 rounded-xl transition duration-300 font-semibold text-sm cursor-pointer"
               >
-                GitHub Code ↗
+                {"GitHub Code ↗\uFE0E"}
               </a>
             )}
           </div>

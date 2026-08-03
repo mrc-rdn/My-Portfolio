@@ -9,9 +9,9 @@ export default function Home() {
 
 
 
-    const socialAccount: socialaccount[] = [{ id: 1, social: 'github ↗', link: 'https://github.com/mrc-rdn' },
-    { id: 2, social: 'linkedin ↗', link: 'https://www.linkedin.com/in/john-marco-ardina-71b166371/' },
-    { id: 3, social: 'instagram ↗', link: 'https://www.instagram.com/mrc_rdna/' }]
+    const socialAccount: socialaccount[] = [{ id: 1, social: 'github ↗\uFE0E', link: 'https://github.com/mrc-rdn' },
+    { id: 2, social: 'linkedin ↗\uFE0E', link: 'https://www.linkedin.com/in/john-marco-ardina-71b166371/' },
+    { id: 3, social: 'instagram ↗\uFE0E', link: 'https://www.instagram.com/mrc_rdna/' }]
 
     const projectHightlightData: ProjectHighlightData[] = [
         { title: 'E-Kabuhayan', year: 2025, description: 'web-based application designed to help students, teachers, and administrators manage courses, track progress, and access learning materials efficiently and securely.' },
@@ -29,6 +29,23 @@ export default function Home() {
         "AWS",
         'Tailwind'
 
+    ];
+
+    const certifications = [
+        {
+            title: 'Practical Software Development',
+            issuer: 'TestDome',
+            year: '2026',
+            link: 'https://www.testdome.com/certificates/73dac721a5f244da8bf38543aa11915d',
+            img: '/images/testdome.webp'
+        },
+        {
+            title: 'The Complete 2024 Web Dev Bootcamp',
+            issuer: 'Udemy',
+            year: '2026',
+            link: 'https://www.udemy.com/certificate/UC-f94a58a3-4716-4ee5-affd-4fcecbc28526/',
+            img: '/images/App Brewery.jpg'
+        }
     ];
 
     const [isOpen, setIsOpen] = useState<boolean>(false);
@@ -105,7 +122,7 @@ export default function Home() {
                         return (
                             <Link to={`/projects/${index}`} key={index} className="block h-auto border-b border-gray-600/70 py-5 group cursor-pointer">
                                 <div className="w-full flex justify-between">
-                                    <h1 className="font-saira font-bold text-lg text-gray-100 group-hover:text-white transition duration-300">{items.title} <span className="opacity-0 group-hover:opacity-100 transition-opacity text-white text-sm ml-1">view details ↗</span></h1>
+                                    <h1 className="font-saira font-bold text-lg text-gray-100 group-hover:text-white transition duration-300">{items.title} <span className="opacity-0 group-hover:opacity-100 transition-opacity text-white text-sm ml-1">{"view details ↗\uFE0E"}</span></h1>
                                     <p className="font-saira text-sm text-gray-400">{items.year}</p>
                                 </div>
 
@@ -168,30 +185,36 @@ export default function Home() {
 
             <div className="flex w-full py-15 flex-col">
                 <div className="flex justify-between w-full items-center h-10 pb-10 border-b border-gray-600/70">
-                    <h1 className="font-bitcount text-xl text-gray-100">03 — Certifications</h1>
+                    <h1 className="font-bitcount text-xl text-gray-100">04 — Certifications</h1>
                     <Link to="/certifications" className="font-saira text-gray-100 hover:text-white transition duration-300">VIEW ALL →</Link>
-
-
-
                 </div>
-                <div className="py-5 flex">
-                    <a href="">
-                        <div className="px-3 py-1 font-saira text-sm text-gray-400 border mr-2 mb-2 rounded-lg 
-                                hover:text-gray-100 duration-100 ease-in-out hover:animate-bounce">
-
-                            <img className="w-10 h-10"
-                                src="/images/testdome.webp" alt="" />
-                            <p>Test Dome</p>
-                            <p></p>
-
-
-
-                        </div>
-                    </a>
+                <div className="py-5 grid grid-cols-1 sm:grid-cols-2 gap-4 w-full">
+                    {
+                        certifications.map((cert, index) => {
+                            return (
+                                <a
+                                    key={index}
+                                    href={cert.link}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="p-5 rounded-2xl border border-neutral-800/80 bg-neutral-900/40 hover:border-white transition duration-300 flex flex-col justify-between min-h-[140px] cursor-pointer"
+                                >
+                                    <div className="flex justify-between items-start gap-4">
+                                        <div className="flex flex-col">
+                                            <span className="text-[10px] text-gray-500 font-semibold uppercase tracking-wider leading-none">{cert.issuer}</span>
+                                            <h3 className="font-saira font-bold text-base text-gray-100 mt-1.5 leading-snug">{cert.title}</h3>
+                                        </div>
+                                        <img className="w-10 h-10 rounded-lg object-contain bg-neutral-900 p-1 border border-neutral-800/80 shrink-0" src={cert.img} alt="" />
+                                    </div>
+                                    <div className="flex justify-between items-center mt-4 text-xs text-gray-500">
+                                        <span>Earned {cert.year}</span>
+                                        <p className="text-white text-[11px] font-semibold">{'Verify ↗\uFE0E'}</p>
+                                    </div>
+                                </a>
+                            )
+                        })
+                    }
                 </div>
-
-
-
             </div>
 
             <div className={isOpen ? ("w-full h-screen bg-white/50 fixed inset-0 flex items-center justify-center") : ('hidden')} >
