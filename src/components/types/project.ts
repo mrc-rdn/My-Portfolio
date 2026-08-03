@@ -7,6 +7,9 @@ export interface ProjectData {
   link?: string;
   is_status: boolean;
   duration: string;
+  challenges?: string;
+  solutions?: string;
+  github?: string;
 }
 
 export interface ProjectHighlightData {

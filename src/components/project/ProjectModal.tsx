@@ -62,23 +62,23 @@ export default function ProjectModal({project, handleExit}: ProjectModalProps) {
         {project.technologies === null? null :<div className='flex flex-col'>
           <h1 className='text-lg md:text-xl font-semibold mt-3 mb-2'>Technologies</h1>
           <div className='flex flex-wrap'>
-            {project.technologies.map((tech) => {
-              return (
-                <span className='px-3 md:px-5 py-1 md:py-2 border-1 text-xs rounded-full bg-lime-700 m-1 transistion duration-500 hover:scale-105 hover:bg-lime-500'>
-                  {tech}
-                </span>
-              );
-            })}
+             {project.technologies.map((tech) => {
+               return (
+                 <span className='px-3 md:px-5 py-1 md:py-2 border border-neutral-700 text-xs rounded-full bg-neutral-800/40 text-gray-200 m-1 transition duration-500 hover:scale-105 hover:border-neutral-500'>
+                   {tech}
+                 </span>
+               );
+             })}
           </div>
         </div>}
         <div>
         
-            {project.link && 
-            <button className='border my-2  py-2 w-20 mt-10 rounded-xl bg-lime-700 backdrop-blur transistion duration-500 hover:scale-105 text-sm'
-                onClick={() => window.open(project.link, "_blank")}
-            >
-                Visit →
-            </button>}
+             {project.link && 
+             <button className='border my-2 py-2 w-20 mt-10 rounded-xl bg-white hover:bg-neutral-200 text-black font-semibold transition duration-500 hover:scale-105 text-sm cursor-pointer'
+                 onClick={() => window.open(project.link, "_blank")}
+             >
+                 Visit →
+             </button>}
         </div>
         
       </div>
@@ -89,9 +89,9 @@ export default function ProjectModal({project, handleExit}: ProjectModalProps) {
             
           <div className='border w-full md:w-6/12 p-4 rounded-xl bg-white/10 backdrop-blur transistion duration-500 hover:scale-105'>
             <label className='text-gray-400 text-sm'>Status</label>
-            {project.is_status ? (
-              <p className='mt-3 text-xl font-semibold text-green-700'>Completed</p>
-            ) : (
+             {project.is_status ? (
+               <p className='mt-3 text-xl font-semibold text-white'>Completed</p>
+             ) : (
               <p className='mt-3 text-xl font-semibold text-yellow-500'>In Progress</p>
             )}
           </div>
@@ -103,13 +103,13 @@ export default function ProjectModal({project, handleExit}: ProjectModalProps) {
         {project.features === null?null: <div>
           <h1 className='text-lg md:text-xl font-semibold'>Key Features</h1>
           <ul>
-            {project.features.map((feature) => {
-              return (
-                <li className='text-gray-400 text-sm md:text-base m-1'>
-                  <span className='text-lime-700 text-2xl'>•</span> {feature}
-                </li>
-              );
-            })}
+             {project.features.map((feature) => {
+               return (
+                 <li className='text-gray-400 text-sm md:text-base m-1 flex items-center gap-2'>
+                   <span className='text-white text-lg leading-none'>•</span> {feature}
+                 </li>
+               );
+             })}
           </ul>
         </div>}
       </div>

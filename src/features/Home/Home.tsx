@@ -1,12 +1,13 @@
 import { GitHubCalendar } from "react-github-calendar";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import ProjectPage from '../../components/project/ProjectPage.tsx'
 import type { ProjectHighlightData, socialaccount } from "../../components/types/project.ts";
 
 
 export default function Home() {
 
-    
+
 
     const socialAccount: socialaccount[] = [{ id: 1, social: 'github ↗', link: 'https://github.com/mrc-rdn' },
     { id: 2, social: 'linkedin ↗', link: 'https://www.linkedin.com/in/john-marco-ardina-71b166371/' },
@@ -26,7 +27,8 @@ export default function Home() {
         "PostgreSQL",
         "Supabase",
         "AWS",
-        
+        'Tailwind'
+
     ];
 
     const [isOpen, setIsOpen] = useState<boolean>(false);
@@ -92,7 +94,7 @@ export default function Home() {
             <div className="flex w-full py-15 flex-col">
                 <div className="flex justify-between w-full items-center h-10 pb-10 border-b border-gray-600/70">
                     <h1 className="font-bitcount text-xl text-gray-100">01 — Projects</h1>
-                    <button className="font-saira text-gray-100">ALL PROJECTS →</button>
+                    <Link to="/projects" className="font-saira text-gray-100 hover:text-white transition duration-300">ALL PROJECTS →</Link>
 
 
 
@@ -101,14 +103,14 @@ export default function Home() {
                 {
                     projectHightlightData.map((items, index) => {
                         return (
-                            <div className="h-auto  border-b border-gray-600/70 py-5">
+                            <Link to={`/projects/${index}`} key={index} className="block h-auto border-b border-gray-600/70 py-5 group cursor-pointer">
                                 <div className="w-full flex justify-between">
-                                    <h1 className="font-saira font-bold text-lg text-gray-100">{items.title}</h1>
+                                    <h1 className="font-saira font-bold text-lg text-gray-100 group-hover:text-white transition duration-300">{items.title} <span className="opacity-0 group-hover:opacity-100 transition-opacity text-white text-sm ml-1">view details ↗</span></h1>
                                     <p className="font-saira text-sm text-gray-400">{items.year}</p>
                                 </div>
 
                                 <p className="font-saira text-sm text-gray-400 pt-2">{items.description}</p>
-                            </div>
+                            </Link>
                         )
                     })
                 }
@@ -120,7 +122,7 @@ export default function Home() {
             <div className="flex w-full py-15 flex-col">
                 <div className="flex justify-between w-full items-center h-10 pb-10 border-b border-gray-600/70">
                     <h1 className="font-bitcount text-xl text-gray-100">02 — Experince</h1>
-                    <button className="font-saira text-gray-100">FULL HISTORY →</button>
+                    <Link to="/experience" className="font-saira text-gray-100 hover:text-white transition duration-300">FULL HISTORY →</Link>
 
 
 
@@ -141,28 +143,58 @@ export default function Home() {
             <div className="flex w-full py-15 flex-col">
                 <div className="flex justify-between w-full items-center h-10 pb-10 border-b border-gray-600/70">
                     <h1 className="font-bitcount text-xl text-gray-100">03 — Stack</h1>
-                    <button className="font-saira text-gray-100">VIEW ALL →</button>
+                    <Link to="/stack" className="font-saira text-gray-100 hover:text-white transition duration-300">VIEW ALL →</Link>
 
 
 
                 </div>
 
 
-                <div className="  py-5 flex">
+                <div className="  py-5 flex flex-wrap ">
                     {
-                        stack.map((items, index)=>{
-                            return(
-                                <p className="px-3 py-2 font-saira text-sm text-gray-400 border mr-2 rounded-lg 
-                                hover:text-gray-100 duratio-100 ease-in-out hover:animate-bounce">{items}</p>
+                        stack.map((items, index) => {
+                            return (
+                                <p className="px-3 py-1 font-saira text-sm text-gray-400 border mr-2 mb-2 rounded-lg 
+                                hover:text-gray-100 duration-100 ease-in-out hover:animate-bounce">{items}</p>
                             )
                         })
                     }
+                    <p className="px-3 py-1 font-saira text-sm text-gray-400 border border-dashed mr-2 mb-2 rounded-lg 
+                        hover:text-gray-100 duration-100 ease-in-out hover:animate-bounce">More</p>
 
                 </div>
 
             </div>
 
-            <div className={isOpen ? ("w-full h-screen bg-white/50 absolute inset-0 flex items-center justify-center") : ('hidden')} >
+            <div className="flex w-full py-15 flex-col">
+                <div className="flex justify-between w-full items-center h-10 pb-10 border-b border-gray-600/70">
+                    <h1 className="font-bitcount text-xl text-gray-100">03 — Certifications</h1>
+                    <Link to="/certifications" className="font-saira text-gray-100 hover:text-white transition duration-300">VIEW ALL →</Link>
+
+
+
+                </div>
+                <div className="py-5 flex">
+                    <a href="">
+                        <div className="px-3 py-1 font-saira text-sm text-gray-400 border mr-2 mb-2 rounded-lg 
+                                hover:text-gray-100 duration-100 ease-in-out hover:animate-bounce">
+
+                            <img className="w-10 h-10"
+                                src="/images/testdome.webp" alt="" />
+                            <p>Test Dome</p>
+                            <p></p>
+
+
+
+                        </div>
+                    </a>
+                </div>
+
+
+
+            </div>
+
+            <div className={isOpen ? ("w-full h-screen bg-white/50 fixed inset-0 flex items-center justify-center") : ('hidden')} >
                 <div className="w-100 h-55 rounded-xl bg-neutral-800 text-gray-200 p-7 relative">
                     <button className="text-[13px] absolute ml-85 top-4"
                         onClick={() => { setIsOpen(false) }}
