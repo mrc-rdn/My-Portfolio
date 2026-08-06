@@ -1,5 +1,5 @@
 import { GitHubCalendar } from "react-github-calendar";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import ProjectPage from '../../components/project/ProjectPage.tsx'
 import type { ProjectHighlightData, socialaccount } from "../../components/types/project.ts";
@@ -66,28 +66,50 @@ export default function Home() {
         }
     };
 
+    useEffect(() => {
+        const observer = new IntersectionObserver(
+            (entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add("show");
+                        observer.unobserve(entry.target);
+                    }
+                });
+            },
+            {
+                threshold: 0.6,
+            }
+        );
+
+        const blocks = document.querySelectorAll(".block");
+
+        blocks.forEach((block) => observer.observe(block));
+
+        return () => observer.disconnect();
+    }, []);
+
     return (
         <div className=' w-full sm:w-auto md:w-185 h-screen flex flex-col items-center mx-auto px-10 '>
             <div className=' flex flex-col sm:flex-row items-center sm:items-start pt-30 pb-15'>
 
                 <img src="/images/Mrc.png" alt="" className='sm:h-70 sm:w-70 w-70 ' />
                 <div className='text-gray-400 w-full mt-10 sm:mt-0'>
-                    <h1 className='text-gray-100 font-bitcount sm:text-3xl text-2xl sm:ml-10'>John Marco Ardina</h1>
-                    <p className=" font-display font-saira text-lg  text-[15px] sm:ml-10 py-3">
+                    <h1 className='text-gray-100 font-bitcount sm:text-3xl text-2xl sm:ml-10 title'>John Marco Ardina</h1>
+                    <p className=" font-display font-saira text-lg  text-[15px] sm:ml-10 py-3 paragraph">
                         I am a Full Stack Developer dedicated to helping teams build reliable and
                         effective solutions with passion and excellence.
                     </p>
-                    <p className="font-display font-saira text-lg  text-[15px] sm:ml-10 py-3">
+                    <p className="font-display font-saira text-lg  text-[15px] sm:ml-10 py-3 paragraph">
                         Transforming creative ideas, code, and concepts into engaging digital experiences
                         that inspire, solve problems, and create lasting impact.
                     </p>
                     <div className="sm:px-10 py-3 w-full flex  flex-wrap ">
                         {
-                            socialAccount.map((items) => {
+                            socialAccount.map((items, index) => {
                                 return (
                                     <a
                                         key={items.id}
-                                        className="text-[13px] m-2 "
+                                        className={`text-[13px] m-2 element${items.id}`}
                                         target="_blank"
                                         rel="noopener noreferrer"
                                         href={items.link}>
@@ -97,7 +119,7 @@ export default function Home() {
                                 )
                             })
                         }
-                        <button className="text-[13px] m-2 "
+                        <button className="text-[13px] m-2 element4"
                             onClick={() => { setIsOpen(!isOpen) }}
                         >
                             Email
@@ -108,7 +130,7 @@ export default function Home() {
 
             </div>
 
-            <div className="flex w-full py-15 flex-col">
+            <div className="flex w-full py-15 flex-col block">
                 <div className="flex justify-between w-full items-center h-10 pb-10 border-b border-gray-600/70">
                     <h1 className="font-bitcount text-xl text-gray-100">01 — Projects</h1>
                     <Link to="/projects" className="font-saira text-gray-100 hover:text-white transition duration-300">ALL PROJECTS →</Link>
@@ -136,7 +158,7 @@ export default function Home() {
 
             </div>
 
-            <div className="flex w-full py-15 flex-col">
+            <div className="flex w-full py-15 flex-col block">
                 <div className="flex justify-between w-full items-center h-10 pb-10 border-b border-gray-600/70">
                     <h1 className="font-bitcount text-xl text-gray-100">02 — Experince</h1>
                     <Link to="/experience" className="font-saira text-gray-100 hover:text-white transition duration-300">FULL HISTORY →</Link>
@@ -157,7 +179,7 @@ export default function Home() {
 
             </div>
 
-            <div className="flex w-full py-15 flex-col">
+            <div className="flex w-full py-15 flex-col block">
                 <div className="flex justify-between w-full items-center h-10 pb-10 border-b border-gray-600/70">
                     <h1 className="font-bitcount text-xl text-gray-100">03 — Stack</h1>
                     <Link to="/stack" className="font-saira text-gray-100 hover:text-white transition duration-300">VIEW ALL →</Link>
@@ -183,7 +205,7 @@ export default function Home() {
 
             </div>
 
-            <div className="flex w-full py-15 flex-col">
+            <div className="flex w-full py-15 flex-col block">
                 <div className="flex justify-between w-full items-center h-10 pb-10 border-b border-gray-600/70">
                     <h1 className="font-bitcount text-xl text-gray-100">04 — Certifications</h1>
                     <Link to="/certifications" className="font-saira text-gray-100 hover:text-white transition duration-300">VIEW ALL →</Link>
@@ -215,6 +237,9 @@ export default function Home() {
                         })
                     }
                 </div>
+            </div>
+            <div className="w-full h-screen bg-blue-100">
+
             </div>
 
             <div className={isOpen ? ("w-full h-screen bg-white/50 fixed inset-0 flex items-center justify-center") : ('hidden')} >
