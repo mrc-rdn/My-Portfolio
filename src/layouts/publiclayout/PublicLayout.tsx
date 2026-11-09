@@ -1,13 +1,37 @@
 
 import { Outlet, NavLink, Link, useLocation } from 'react-router-dom'
 import { useState, useEffect } from "react";
+import {MessageSquareText, FolderKanban, UserStar, Layers, BadgeCheck,  Gamepad2   } from "lucide-react"
+import type {Nav}  from '../../components/types/project';
 
 export default function PublicLayout() {
-    const nav: string[] = ['Project', 'Experience', 'Stack', 'Certifications', 'Games']
+    const nav: Nav[] = [
+        {
+        label: 'Project',
+        icon: FolderKanban,
+        },
+        {
+        label: 'Experience',
+        icon: FolderKanban,
+        },
+        {
+        label: 'Stack',
+        icon: Layers,
+        },
+        {
+        label: 'Certifications',
+        icon: BadgeCheck,
+        },
+        {
+        label: 'Games',
+        icon: Gamepad2,
+        },
+
+    ]
     const [isOpen, setIsOpen] = useState<boolean>(false);
 
     const location = useLocation();
-
+//['Project', 'Experience', 'Stack', 'Certifications', 'Games']
     useEffect(() => {
 
         const element = document.querySelector('.animate');
@@ -40,34 +64,50 @@ export default function PublicLayout() {
         <div className='lg:flex bg-neutral-900 min-h-screen text-gray-200'>
 
             {/* Desktop Sidebar */}
-            <div className='h-screen w-50 bg-neutral-900 border-r border-gray-500 hidden lg:flex flex-col shrink-0'>
-                <div className='px-8 py-5 mb-auto'>
-                    <Link to="/" className='text-white text-2xl font-bitcount mb-7'>Mrco</Link>
+            <div className='h-screen w-50 bg-neutral-900 border-r border-gray-500 hidden lg:flex flex-col shrink-0 px-6 py-5'>
+                <div className=' '>
+                    
+                    <Link to='/' className='text-white text-2xl font-bitcount'>{'</>Mrc'}</Link>
+                    
                     {
                         nav.map((items, index) => {
+                            const Icon = items.icon;
                             return (
                                 <NavLink
                                     key={index}
-                                    to={getRoute(items)}
+                                    to={getRoute(items.label)}
                                     className={({ isActive }) =>
                                         `font-saira flex my-5 text-[15px] transition duration-300 hover:text-white ${isActive ? 'text-white font-semibold' : 'text-gray-400'
                                         }`
                                     }
                                 >
-                                    {items}
+                                    <div className='flex items-center'>
+                                        <Icon size={15} />
+                                        <p className='ml-2 '>{items.label}</p>
+                                    </div>
+                                    
                                 </NavLink>
                             )
                         })
                     }
                 </div>
-                <div className='h-15 flex items-center border-t border-gray-500 py-3 px-5'>
+                
+                <div className='h-15 flex items-center border-t border-gray-500'>
+                    <div className='flex flex-row items-center '>
+                       <MessageSquareText size={15} /> <h1 className=' font-saira flex text-[13px] ml-2 transition duration-300 hover:text-white' > community chat</h1>
+                    </div>
+                </div>
+                <div className='h-15 flex items-center border-t border-gray-500'>
+                    <div>
+                        <h1 className='font-saira flex my-5 text-[15px] transition duration-300 hover:text-white' ></h1>
+                    </div>
                 </div>
             </div>
 
             {/* Mobile Overlay Sidebar */}
             <div className={isOpen ? 'h-screen w-full bg-neutral-900 border-r border-gray-500 fixed lg:hidden z-50 flex flex-col' : 'h-screen w-full bg-neutral-800 border-r border-gray-500 fixed hidden lg:hidden z-50 flex flex-col '}>
                 <div className='h-15 flex items-center border-b border-gray-500 py-3 px-10 shrink-0'>
-                    <h2 className='text-white text-2xl font-bitcount'>{'</>Mrc'}</h2>
+                    <Link to='/' className='text-white text-2xl font-bitcount'>{'</>Mrc'}</Link>
                     <button
                         className="lg:hidden text-white text-2xl font-bitcount ml-auto cursor-pointer"
                         onClick={() => setIsOpen(!isOpen)}
@@ -76,26 +116,37 @@ export default function PublicLayout() {
                     </button>
                 </div>
 
-                <div className='px-8 py-5 mb-auto'>
+                <div className='px-6 py-5'>
                     {
                         nav.map((items, index) => {
+                            const Icon = items.icon;
+
                             return (
                                 <NavLink
                                     key={index}
-                                    to={getRoute(items)}
+                                    to={getRoute(items.label)}
                                     onClick={() => setIsOpen(false)}
                                     className={({ isActive }) =>
-                                        `font-saira flex my-5 text-[15px] transition duration-300 hover:text-white ${isActive ? 'text-white font-semibold' : 'text-gray-400'
+                                        `font-saira flex my-5 text-[15px] transition duration-300 hover:text-white flex flex-row ${isActive ? 'text-white font-semibold' : 'text-gray-400'
                                         }`
                                     }
                                 >
-                                    {items}
+                                    <div className='flex items-center'>
+                                        <Icon size={15} />
+                                        <p className='ml-2 '>{items.label}</p>
+                                    </div>
+                                    
                                 </NavLink>
                             )
                         })
                     }
                 </div>
-                <div className='h-15 flex items-center border-t border-gray-500 py-3 px-5 shrink-0'>
+                <div className='h-15 flex items-center border-t border-gray-500 px-6 py-5 mx-6'>
+                    <div className='flex flex-row items-center '>
+                       <MessageSquareText size={15} /> <h1 className=' font-saira flex text-[13px] ml-2 transition duration-300 hover:text-white' > community chat</h1>
+                    </div>
+                </div>
+                <div className='h-15 flex items-center border-t border-gray-500 py-3 px-5 shrink-0 mx-6'>
                 </div>
             </div>
 

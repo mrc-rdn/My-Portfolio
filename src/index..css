@@ -67,6 +67,22 @@
   }
 }
 
+
+@keyframes disappear {
+  from{
+    opacity: 1;
+    
+  }
+  to {
+    opacity: 0;
+   
+  }
+}
+
+
+.guide.disappear {
+  animation: appear 0.8s ease forwards;
+}
 /* .block {
   animation: appear linear;
   animation-timeline: view();

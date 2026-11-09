@@ -36,7 +36,10 @@ export default function Stack() {
       category: 'DATABASES & BAAS',
       items: [
         'PostgreSQL',
-        'Supabase'
+        'Supabase',
+        'OAuth',
+        'JWT',
+        'REST'
       ]
     },
     {
@@ -47,6 +50,13 @@ export default function Stack() {
         'PM2',
         'Git',
         'GitHub'
+      ]
+    },
+    {
+      category: 'CMS & No Code',
+      items: [
+        'n8n',
+        
       ]
     },
     {

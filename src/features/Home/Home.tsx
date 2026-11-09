@@ -1,12 +1,28 @@
 import { GitHubCalendar } from "react-github-calendar";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import ProjectPage from '../../components/project/ProjectPage.tsx'
 import type { ProjectHighlightData, socialaccount } from "../../components/types/project.ts";
 
 
 export default function Home() {
+    
 
+    const [show, setShow] = useState<boolean>(true);
+
+    const [showScrollGuide, setShowScrollGuide] = useState(true);
+
+useEffect(() => {
+    const handleScroll = () => {
+        setShowScrollGuide(false);
+    };
+
+    // { once: true } auto-removes the listener after it fires once —
+    // no need for manual cleanup logic beyond the returned function
+    window.addEventListener("scroll", handleScroll, { once: true });
+
+    return () => window.removeEventListener("scroll", handleScroll);
+}, []);
 
 
     const socialAccount: socialaccount[] = [{ id: 1, social: 'github ↗\uFE0E', link: 'https://github.com/mrc-rdn' },
@@ -72,16 +88,22 @@ export default function Home() {
                 entries.forEach((entry) => {
                     if (entry.isIntersecting) {
                         entry.target.classList.add("show");
+                        entry.target.classList.add("disapper");
                         observer.unobserve(entry.target);
+                        
                     }
                 });
             },
             {
                 threshold: 0.6,
+                
             }
         );
 
         const blocks = document.querySelectorAll(".block");
+        const guide = document.querySelectorAll(".guide");
+
+        
 
         blocks.forEach((block) => observer.observe(block));
 
@@ -129,6 +151,14 @@ export default function Home() {
 
 
             </div>
+
+
+            
+    <h1 className={`font-saira animate-bounce transition-all duration-300 guide`}>
+        ↓ Scroll Down ↓
+    </h1>
+
+
 
             <div className="flex w-full py-15 flex-col block">
                 <div className="flex justify-between w-full items-center h-10 pb-10 border-b border-gray-600/70">

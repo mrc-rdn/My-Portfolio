@@ -1,3 +1,5 @@
+import type { LucideIcon } from "lucide-react";
+
 export interface ProjectData {
   title: string;
   description: string;
@@ -29,4 +31,9 @@ export interface GameData{
   title: string;
   img: string;
   link: string;
+}
+
+export interface Nav{
+  label: string;
+  icon: LucideIcon;
 }

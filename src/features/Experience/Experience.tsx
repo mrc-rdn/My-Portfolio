@@ -16,7 +16,7 @@ export default function Experience() {
     {
       role: 'Software Development Intern',
       company: 'NexVision Inc.',
-      timeline: '2026 - Present',
+      timeline: '2026 Mar - 2026 Aug',
       responsibilities: [
         'Collaborate with senior developers to design, develop, and deploy scalable enterprise features.',
         'Optimize page performance, code split packages, and memoize expensive computations.',
@@ -31,7 +31,7 @@ export default function Experience() {
     {
       role: 'Freelance Web Developer',
       company: 'Self-Employed',
-      timeline: '2024 - 2025',
+      timeline: '2024 - Now',
       responsibilities: [
         'Translated complex client concepts into high-performance web systems and customizable dashboards.',
         'Structured search-engine optimized (SEO) and accessible layouts adhering to modern web design standards.',

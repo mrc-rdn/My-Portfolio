@@ -6,7 +6,7 @@ export const projects: ProjectData[] = [
     {
         title: 'PLRMO LMS (E-Kabuhayan)',
         description: 'The PLRMO Learning Management System (LMS) is a web-based application designed to help students, teachers, and administrators manage courses, track progress, and access learning materials efficiently and securely.',
-        img: ['/images/PLRMO/1.png', '/images/PLRMO/2.png', '/images/PLRMO/3.png'],
+        img: ['/images/ekabuhayan/1.png', '/images/ekabuhayan/2.png', '/images/ekabuhayan/3.png', '/images/ekabuhayan/4.png', '/images/ekabuhayan/5.png'],
         technologies: ['PostgreSQL', 'Express.js', 'React.js', 'Node.js', 'Websocket', 'Gemini API'],
         features: [
             'Skill Development: Access to quality training modules designed for practical skill acquisition across various industries.',
@@ -18,28 +18,30 @@ export const projects: ProjectData[] = [
         ],
         link: '',
         is_status: false,
-        duration: 'Sept 2025 - On Going',
+        duration: 'Sept 2025 - Feb 2026',
         challenges: 'Designing a real-time progress-tracking system and interactive classroom experience that stays fast and doesn\'t drop websocket connections during internet interruptions.',
         solutions: 'Implemented an automated reconnection logic with exponential backoff on the client-side, combined with local state caching so that progress logs are synced once the connection resumes.',
-        github: 'https://github.com/mrc-rdn/CAPSTONE-DEPLOYMENT'
-    },
-    {
-        title: 'Nex-TOS',
-        description: 'A web-based business operations and service management platform that streamlines equipment management, technician workflows, client services, inventory, billing, and field operations.',
-        img: ['/images/nex-tos/1.png', '/images/nex-tos/2.png', '/images/nex-tos/3.png', '/images/nex-tos/4.png'],
-        technologies: ['React.js', 'TypeScript', 'Tailwind CSS', 'Node.js', 'PostgreSQL', 'Supabase'],
+        github: 'https://github.com/mrc-rdn/CAPSTONE'
+    }, {
+        title: 'National Unida Youth Offical Website',
+        description: 'Built a cloud-based system where the backend runs on Amazon EC2, application data is securely stored in Amazon RDS, and images and files are managed using Amazon S3 for scalable storage.',
+        img: ['/images/nuy/1.png', '/images/nuy/2.png', '/images/nuy/3.png', '/images/nuy/4.png', '/images/nuy/5.png', '/images/nuy/6.png'],
+        technologies: ['React', 'Tailwind', 'EC2', 'React', 'Express', 'Postgres', 'Node'],
         features: [
-            'Technician Management: Allocate, track, and manage service tasks and schedules dynamically.',
-            'Inventory Control: Track spare parts, stock levels, equipment status, and maintenance schedules.',
-            'Client Portal: Allow clients to view work order statuses, request new services, and view invoice history.',
-            'Billing & Invoicing: Auto-generate detailed work logs and invoices directly from completed technician tickets.',
+            'Cloud Deployment – Hosted on AWS EC2 with Nginx and PM2 for reliable production uptime.',
+            'Real-World Ready – Combines full-stack technologies and cloud deployment for a professional application.',
+            'User Authentication & Security – Users can register and log in securely using JWT for protected sessions.',
+            'Task Management – Users can create, read, update, and delete their tasks easily.',
+            'Interactive Frontend – Built with React, the UI is responsive and updates in real-time.',
+            'Backend API – Node.js and Express handle requests and protect routes for authenticated users.',
+            'Database Integration – PostgreSQL on AWS RDS securely stores users and tasks.',
         ],
-        link: '',
-        is_status: false,
-        duration: 'Jan 2026 - On Going',
-        challenges: 'Syncing real-time updates for field technicians working on-site where offline support and immediate database updates are critical.',
-        solutions: 'Utilized Supabase\'s Realtime subscription channel with optimistic UI updates in React. If the connection fails, data edits are saved locally and pushed to PostgreSQL once online.',
-        github: 'https://github.com/mrc-rdn/nex-tos'
+        link: 'https://national-unida-youth-mock-design.vercel.app/?fbclid=IwY2xjawVecclleHRuA2FlbQIxMABwZG9mBWJyaWQRMVVDS0p2eHVNRE5GdllzQzdzcnRjBmFwcF9pZBAyMjIwMzkxNzg4MjAwODkyAAEfcFUh0FQyMUyzu1rAhYzVe1Nl8RWGpXjnilSdjBzY401cs93qc-0cDrkwFRY_aem_3ZuRvQaCqGtv-6PF37mPIA',
+        is_status: true,
+        duration: '1 week',
+        challenges: 'Configuring secure AWS IAM roles, setting up Nginx reverse proxy with PM2 daemon, and managing PostgreSQL credentials on RDS safely.',
+        solutions: 'Created specific security groups for backend/frontend networks, locked RDS to EC2 private subnet, configured reverse proxy headers to forward client IPs, and stored credentials in secure dotenv environment files.',
+        github: 'https://github.com/mrc-rdn/NATIONAL-UNIDA-YOUTH-MOCK-DESIGN'
     },
     {
         title: 'Devotion Tracker',
@@ -78,7 +80,27 @@ export const projects: ProjectData[] = [
         challenges: 'Configuring secure AWS IAM roles, setting up Nginx reverse proxy with PM2 daemon, and managing PostgreSQL credentials on RDS safely.',
         solutions: 'Created specific security groups for backend/frontend networks, locked RDS to EC2 private subnet, configured reverse proxy headers to forward client IPs, and stored credentials in secure dotenv environment files.',
         github: 'https://github.com/mrc-rdn/keeper-aws'
-    }
+    },
+    {
+        title: 'Nex-TOS',
+        description: 'A web-based business operations and service management platform that streamlines equipment management, technician workflows, client services, inventory, billing, and field operations.',
+        img: ['/images/nex-tos/1.png', '/images/nex-tos/2.png', '/images/nex-tos/3.png', '/images/nex-tos/4.png'],
+        technologies: ['React.js', 'TypeScript', 'Tailwind CSS', 'Node.js', 'PostgreSQL', 'Supabase'],
+        features: [
+            'Technician Management: Allocate, track, and manage service tasks and schedules dynamically.',
+            'Inventory Control: Track spare parts, stock levels, equipment status, and maintenance schedules.',
+            'Client Portal: Allow clients to view work order statuses, request new services, and view invoice history.',
+            'Billing & Invoicing: Auto-generate detailed work logs and invoices directly from completed technician tickets.',
+        ],
+        link: '',
+        is_status: false,
+        duration: 'Jan 2026 - On Going',
+        challenges: 'Syncing real-time updates for field technicians working on-site where offline support and immediate database updates are critical.',
+        solutions: 'Utilized Supabase\'s Realtime subscription channel with optimistic UI updates in React. If the connection fails, data edits are saved locally and pushed to PostgreSQL once online.',
+        github: 'https://github.com/mrc-rdn/nex-tos'
+    },
+   
+     
 ]
 
 export default function ProjectPage() {
